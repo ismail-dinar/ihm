@@ -1,0 +1,9 @@
+
+::ng-deep .dx-toolbar-label .dx-toolbar-item-content > div {
+  text-transform: capitalize;
+}
+mat-chip {
+  min-width: 100px;
+  background-color: #673ab7 !important;
+  color: white !important;
+}

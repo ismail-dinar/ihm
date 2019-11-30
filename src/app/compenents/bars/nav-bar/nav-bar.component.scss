@@ -1,0 +1,14 @@
+mat-toolbar{
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+::ng-deep  .dx-overlay-wrapper {
+  z-index: 150 !important;
+}
+
+::ng-deep .mat-snack-bar-container{
+  background: #673ab7 !important;
+  color: white !important;
+}

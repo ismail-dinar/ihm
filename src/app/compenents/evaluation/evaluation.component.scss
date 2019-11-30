@@ -1,0 +1,29 @@
+
+
+::ng-deep  .cdk-column-evaluation {
+  width: 200px !important;
+}
+::ng-deep .cdk-column-name {
+  width: 300px !important;
+}
+td.cdk-column-groupHeader {
+  background-color: #ffd740;
+}
+.mat-header-cell{
+  font-size: 20px;
+  font-weight: normal;
+}
+.evaluation-button{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
+::ng-deep .mat-snack-bar-container{
+  background: #007bff!important;
+  color: white !important;
+}
+mat-chip {
+  min-width: 100px;
+  background-color: #673ab7 !important;
+  color: white !important;
+}

@@ -1,0 +1,31 @@
+<mat-card class="container mat-elevation-z6">
+  <mat-nav-list>
+    <ng-container *ngFor="let criteria of criteriaToShow">
+      <h5 class="text-capitalize" style="color: rgba(0,0,0,.54);">{{criteria?.category}}</h5>
+      <mat-list-item *ngFor="let c of criteria.criterias" (click)="details(c)">
+        <h4 mat-line class="text-capitalize">{{c.name}} <i class="fas fa-info-circle" style="float: right"></i></h4>
+      </mat-list-item>
+    </ng-container>
+  </mat-nav-list>
+</mat-card>
+<dx-popup *ngIf="popup"
+          height="400"
+          width="800"
+          [(visible)]="popup"
+          showTitle="true"
+          [(title)]="title"
+>
+  <div *dxTemplate="let data of 'content'">
+    <h5 class="text-capitalize">definition:</h5>
+    <p class="text-justify">{{currentCriteria.definition}}</p>
+    <h5 class="text-capitalize">evaluation questions:</h5>
+    <ul>
+      <li *ngFor="let q of currentCriteria.questions"> {{q}}</li>
+    </ul>
+    <mat-chip-list class="text-center text-capitalize">
+      <mat-chip disableRipple color="primary" matTooltip="Device Type" matTooltipPosition="above">{{currentCriteria.device}}</mat-chip>
+      <mat-chip disableRipple color="accent" matTooltip="Application Area" matTooltipPosition="above">{{currentCriteria.application}}</mat-chip>
+      <mat-chip disableRipple color="warn" matTooltip="Target Users" matTooltipPosition="above">{{currentCriteria.users}}</mat-chip>
+    </mat-chip-list>
+  </div>
+</dx-popup>

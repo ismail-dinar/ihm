@@ -1,0 +1,39 @@
+<div class="container mb-5">
+  <!--<div class="search-bar d-flex justify-content-center">
+    <mat-form-field class="w-50" appearance="outline">
+      <mat-label>Search for a criterion</mat-label>
+      <input type="text" aria-label="Number" matInput [formControl]="formControl" [matAutocomplete]="auto">
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let criteria of criterias.criterias" [value]="criteria.name">
+          {{criteria.criteria}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>-->
+  <mat-card class="mat-elevation-z6 p-5">
+    <ng-container *ngIf="!isEvaluate && ! isShow else showEvaluate">
+      <h4 class="mb-3" style="color: #4e555b">Select a category</h4>
+      <mat-selection-list #selectionList (selectionChange)="getChecked($event, selectionList.selectedOptions.selected)">
+        <mat-list-option value="all">All</mat-list-option>
+        <mat-list-option *ngFor="let category of categories;" class="text-capitalize" [value]="category"
+                         [disabled]="isAll">
+          {{category}}
+        </mat-list-option>
+      </mat-selection-list>
+      <div class="d-flex flex-row justify-content-end mt-2">
+        <button mat-raised-button color="primary" (click)="isEvaluate = true" class="mr-3"
+                [disabled]="selectionList.selectedOptions.selected.length === 0">Evaluate
+        </button>
+        <button mat-raised-button color="primary" (click)="isShow = true"
+                [disabled]="selectionList.selectedOptions.selected.length === 0">Show definitions
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #showEvaluate>
+      <app-selected-criteria *ngIf="isShow" [categories]="checked"></app-selected-criteria>
+      <app-evaluation *ngIf="isEvaluate" [categories]="checked"></app-evaluation>
+    </ng-template>
+  </mat-card>
+</div>
+
